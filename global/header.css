@@ -1,0 +1,159 @@
+/* Header */
+
+header {
+    background-color: white;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 15px;
+    box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.155);
+    z-index: 1;
+    margin-bottom: 4px;
+}
+
+header .container {
+    width: 100%;
+    padding: 0;
+}
+
+header .logo img {
+    width: max-content;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header form {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.catolog-menu {
+    display: flex;
+    padding: 0px 16px;
+    height: 40px;
+    background-color: var(--green);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.catolog-text {
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.search-box {
+    width: max-content;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--green);
+    padding: 0 10px;
+    border-radius: 4px;
+}
+
+.search-panel {
+    width: 400px;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.search-box img {
+    cursor: pointer;
+}
+
+.other-menues {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.menu-item li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.menu-item li:hover p {
+    color: var(--green);
+}
+
+.menu-item img {
+    width: max-content;
+}
+
+.menu-item li p {
+    font-size: 14px;
+    font-weight: 400;
+    transition: all .2s ease;
+}
+
+.accaunt-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.accaunt-bar img:last-child {
+    margin-left: 25px;
+}
+
+/* Responsive */
+
+@media (max-width: 1265px) {
+    .my-res-logo {
+        display: block;
+    }
+
+    .my-logo {
+        display: none;
+    }
+}
+
+@media (max-width: 1150px) {
+
+    .catolog-text,
+    .accaunt-bar p,
+    .accaunt-bar img:last-child {
+        display: none;
+    }
+}
+
+@media (max-width: 950px) {
+    .search-panel {
+        width: 280px;
+    }
+}
+
+@media (max-width: 800px) {
+    .other-menues {
+        display: none;
+    }
+}
+
+@media (max-width: 540px) {
+    .accaunt-bar {
+        display: none;
+    }
+}
+
+@media (max-width: 505px) {
+    .catolog-menu {
+        display: none;
+    }
+
+    .search-panel {
+        width: 200px;
+    }
+}

@@ -1,0 +1,255 @@
+/* Main section, Cards */
+
+.card-container {
+    padding: 80px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.dash-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.show-more-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.show-more-link p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--dark-gray);
+}
+
+.cards-panel {
+    display: grid;
+    grid-template-columns: repeat(4, 320px);
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.card {
+    width: 100%;
+    height: 410px;
+    border-radius: 4px;
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.079);
+    transition: all .2s ease-in-out;
+}
+
+.card:hover {
+    box-shadow: 2px 8px 15px 0px rgba(0, 0, 0, 0.116);
+}
+
+.card .top {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.card .like-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #F3F2F1;
+    padding: 3px;
+    border-radius: 4px;
+    opacity: .6;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.card .like-btn:hover {
+    background-color: var(--red);
+}
+
+.product-image {
+    width: 100%;
+    border-radius: 4px;
+}
+
+.card .main-part {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.price-and-others {
+    display: flex;
+    justify-content: space-between;
+}
+
+.price-and-others .left,
+.price-and-others .right {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.price-and-others .left .price {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.price-and-others .right .price {
+    font-size: 20px;
+    font-weight: 400;
+    color: #606060;
+}
+
+.price-and-others .desc {
+    font-size: 14px;
+    color: #BFBFBF;
+    font-weight: 400;
+}
+
+.about-product {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.price-and-others .desc {
+    font-size: 14px;
+    color: #BFBFBF;
+    font-weight: 400;
+}
+
+.about-product {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.card .bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.add-to-cart-btn {
+    color: var(--green);
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid var(--green);
+    text-align: center;
+    transition: all .2s ease;
+}
+
+.add-to-cart-btn:hover {
+    color: white;
+    background-color: var(--red);
+    border: 1px solid var(--red);
+}
+
+
+/* Responsive */
+
+@media (max-width: 1390px) {
+    .cards-panel {
+        grid-template-columns: repeat(4, 280px);
+    }
+
+    .card-container {
+        padding-top: 40px;
+    }
+}
+
+@media (max-width: 1230px) {
+    .cards-panel {
+        grid-template-columns: repeat(3, 320px);
+    }
+
+    .cards-panel .card:last-child {
+        display: none;
+    }
+}
+
+@media (max-width: 1050px) {
+    .cards-panel {
+        grid-template-columns: repeat(3, 280px);
+        gap: 10px;
+    }
+}
+
+@media (max-width: 950px) {
+    .price-and-others .left .price {
+        font-size: 18px;
+    }
+
+    .price-and-others .right .price,
+    .about-product {
+        font-size: 16px;
+    }
+
+    .price-and-others .desc {
+        font-size: 12px;
+    }
+
+    .cards-panel .card {
+        height: 360px;
+    }
+
+    .cards-panel {
+        grid-template-columns: repeat(3, 240px);
+    }
+
+    .card-container {
+        padding: 20px 0 40px 0;
+        gap: 40px;
+    }
+
+    .show-more-link p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 800px) {
+    .cards-panel {
+        grid-template-columns: repeat(2, 320px);
+    }
+
+    .cards-panel .card:nth-child(3) {
+        display: none;
+    }
+}
+
+@media (max-width: 705px) {
+    .cards-panel {
+        grid-template-columns: repeat(2, 280px);
+    }
+}
+
+@media (max-width: 630px) {
+    .cards-panel {
+        grid-template-columns: repeat(2, 240px);
+    }
+}
+
+@media (max-width: 540px) {
+    .cards-panel {
+        grid-template-columns: repeat(2, 220px);
+    }
+}
+
+@media (max-width: 505px) {
+    .cards-panel {
+        grid-template-columns: 320px;
+        justify-content: center;
+        gap: 20px;
+    }
+}
