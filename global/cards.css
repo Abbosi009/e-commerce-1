@@ -174,9 +174,9 @@
         grid-template-columns: repeat(3, 320px);
     }
 
-    .cards-panel .card:last-child {
+    /* .cards-panel .card:last-child {
         display: none;
-    }
+    } */
 }
 
 @media (max-width: 1050px) {

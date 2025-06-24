@@ -20,6 +20,11 @@
     --dark-gray: #606060;
 }
 
+h1 {
+    font-size: 66px;
+    font-weight: bold;
+}
+
 h2 {
     font-size: 42px;
     font-weight: bold;
@@ -34,8 +39,8 @@ body {
     width: calc(100% - 30px);
     max-width: 1440px;
     margin: 0 auto;
-    padding-left: 15px;
-    padding-right: 15px;
+    /* padding-left: 15px; */
+    /* padding-right: 15px; */
 }
 
 .my-res-logo {
