@@ -1,71 +1,84 @@
-const left = document.querySelector(".left")
-const right = document.querySelector(".right")
-const section = document.querySelector(".section")
+import { cartApi } from '../../api/api.js';
 
-let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+const cartProductsContainer = document.querySelector('.cart-products');
+const procutsQty = document.querySelector('.tovar-length');
+const totalPriceElement = document.querySelector('.all-price-two');
 
-if (cart == []) {
-    section.removeChild(right)
-}
-
-let elementCount = 0;
-let allPrice = 0;
-
-cart.forEach(element => {
-    let div = document.createElement('div')
-    div.innerHTML = `
-        <li>
-            <img src="${element.image}" alt="" class="tovar">
-            <div class="inside">
-                <div class="info">
-                    <p>${element.title}</p>
-                    <div>
-                        <span class="price">${element.price} ₽</span>
-                        <span class="count">за шт.</span>
-                    </div>
-                </div>
-
-                <div class="aside">
-                    <div class="item-count">
-                        <img src="./assets/icons/minus.png" alt="" class="decrease">
-                        <span class="the-count">1</span>
-                        <img src="./assets/icons/plus.png" alt="" class="increase">
-                    </div>
-                    <span class="total-sum">${element.price} ₽</span>
-                </div>
-            </div>
-            <input type="checkbox">
-        </li>`
-
-    left.appendChild(div)
-
-    elementCount++
-    allPrice += element.price
+window.addEventListener('DOMContentLoaded', () => {
+  getCartProducts();
 });
 
-let tovarLength = document.querySelector(".tovar-length")
-let tovarPrice = document.querySelector(".all-price")
-let tovarPriceTwo = document.querySelector(".all-price-two")
+async function getCartProducts() {
+  try {
+    const response = await fetch(cartApi);
+    const data = await response.json();
 
-tovarLength.textContent = `${elementCount} товара`
-tovarPrice.textContent = `${allPrice} ₽`
-tovarPriceTwo.textContent = `${allPrice} ₽`
+    renderCartProducts(data);
+  } catch (error) {}
+}
 
-let decrease = document.querySelectorAll(".decrease")
-let increase = document.querySelectorAll(".increase")
-let theCount = document.querySelector(".the-count")
-let totalSum = document.querySelector(".total-sum")
+function renderCartProducts(products = []) {
+  cartProductsContainer.innerHTML = '';
 
-increase.forEach((element) => {
-    element.addEventListener('click', () => {
-        if (theCount.textContent >= 10) return;
-        theCount.textContent++
-    })
-})
+  procutsQty.textContent = products.length + ' товара';
+  calculateTotalPrice(products);
 
-decrease.forEach((element) => {
-    element.addEventListener('click', () => {
-        if (theCount.textContent <= 0) return;
-        theCount.textContent--
-    })
-})
+  products.forEach((cartItem) => {
+    const li = document.createElement('li');
+    li.classList.add('tovar');
+
+    li.addEventListener('click', (e) => {
+      if (e.target.classList.contains('delete-btn')) {
+        deleteFromCart(cartItem.id);
+      }
+    });
+
+    li.innerHTML = `
+         <img src="${cartItem.image}" alt="" class="tovar">
+            <div class="inside">
+              <div class="info">
+              <p>${cartItem.name}</p>
+              <div>
+                 <span class="price">${cartItem.price} ₽</span>
+                   <span class="count">за шт.</span>
+              </div>
+        </div>
+            
+          <div class="aside">
+             <div class="item-count">
+              <img src="./assets/icons/minus.png" alt="" class="decrease">
+                <span class="the-count">1</span>
+                <img src="./assets/icons/plus.png" alt="" class="increase">
+            </div>
+
+             <div class="item-count delete-btn" style="background-color:red; cursor:pointer; color:white">
+                delete
+            </div>
+
+            <span class="total-sum">${cartItem.price} ₽</span>
+        </div>
+    </div>`;
+
+    cartProductsContainer.appendChild(li);
+  });
+}
+
+async function deleteFromCart(productId) {
+  try {
+    await fetch(`${cartApi}/${productId}`, {
+      method: 'DELETE',
+    });
+  } catch (error) {}
+
+  getCartProducts();
+}
+
+function calculateTotalPrice(product) {
+  const sum = product.reduce((acc, cur) => {
+    return acc + cur.price;
+  }, 0);
+
+  console.log(sum);
+
+  totalPriceElement.textContent = `${sum} ₽`;
+}

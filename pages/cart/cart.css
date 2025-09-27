@@ -1,220 +1,221 @@
 .carts {
-    padding: 80px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 60px;
+  padding: 80px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
 }
 
 .main {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .main .top {
-    display: flex;
-    align-items: center;
-    gap: 48px;
+  display: flex;
+  align-items: center;
+  gap: 48px;
 }
 
 .top span {
-    font-weight: 400;
-    font-size: 14px;
-    cursor: pointer;
+  font-weight: 400;
+  font-size: 14px;
+  cursor: pointer;
 }
 
 .top span:last-child {
-    color: var(--red);
+  color: var(--red);
 }
 
 .section {
-    display: flex;
-    gap: 60px;
-    justify-content: space-between;
-    width: 100%;
+  display: flex;
+  gap: 60px;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .section .left {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .section .left li {
-    position: relative;
-    display: flex;
-    gap: 5px;
-    background-color: white;
-    padding: 8px;
-    width: 1000px;
-    box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.16);
-    border-radius: 4px;
-    transition: box-shadow .2s ease;
+  position: relative;
+  display: flex;
+  gap: 5px;
+  background-color: white;
+  padding: 8px;
+  height: 70px;
+  width: 1000px;
+  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.16);
+  border-radius: 4px;
+  transition: box-shadow 0.2s ease;
 }
 
 .section .left li:hover {
-    box-shadow: 2px 5px 20px 0 rgba(186, 82, 82, 0.273);
+  box-shadow: 2px 5px 20px 0 rgba(186, 82, 82, 0.273);
 }
 
 .section .left p {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 .price {
-    font-size: 13px;
-    font-weight: bold;
+  font-size: 13px;
+  font-weight: bold;
 }
 
 .count {
-    font-size: 13px;
-    font-weight: 400;
-    margin-left: 5px;
+  font-size: 13px;
+  font-weight: 400;
+  margin-left: 5px;
 }
 
 .inside {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .info {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .tovar {
-    height: 50px;
+  height: 50px;
 }
 
 .aside {
-    display: flex;
-    align-items: center;
-    gap: 4rem;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
 }
 
 .item-count {
-    display: flex;
-    align-items: center;
-    background-color: var(--green);
-    padding: 8px;
-    height: max-content;
-    gap: 10px;
-    border-radius: 4px;
+  display: flex;
+  align-items: center;
+  background-color: var(--green);
+  padding: 8px;
+  height: max-content;
+  gap: 10px;
+  border-radius: 4px;
 }
 
 .item-count img {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .item-count span {
-    font-size: 16;
-    font-weight: 400;
-    color: white;
+  font-size: 16;
+  font-weight: 400;
+  color: white;
 }
 
 .total-sum {
-    font-size: 18px;
-    font-weight: bold;
-    text-wrap: nowrap;
+  font-size: 18px;
+  font-weight: bold;
+  text-wrap: nowrap;
 }
 
 li input {
-    cursor: pointer;
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    top: 2px;
-    left: 2px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 2px;
+  left: 2px;
 }
 
 .section .right {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    width: 100%;
-    max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+  max-width: 600px;
 }
 
 .first {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #8F8F8F;
-    font-size: 1rem;
-    font-weight: 400;
-    border-top: 1px #8f8f8f47 solid;
-    padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #8f8f8f;
+  font-size: 1rem;
+  font-weight: 400;
+  border-top: 1px #8f8f8f47 solid;
+  padding: 20px 0;
 }
 
 .second {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #8F8F8F;
-    font-size: 1rem;
-    font-weight: 400;
-    border-top: 1px #8f8f8f47 solid;
-    padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #8f8f8f;
+  font-size: 1rem;
+  font-weight: 400;
+  border-top: 1px #8f8f8f47 solid;
+  padding: 20px 0;
 }
 
 .second p:last-child {
-    font-size: 24px;
-    font-weight: bold;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .third {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .third p {
-    font-size: 12px;
-    background-color: #D80000;
-    padding: 8px;
-    color: white;
-    border-radius: 4px;
-    font-weight: 400;
-    width: max-content;
+  font-size: 12px;
+  background-color: #d80000;
+  padding: 8px;
+  color: white;
+  border-radius: 4px;
+  font-weight: 400;
+  width: max-content;
 }
 
 .third button {
-    background-color: #FCD5BA;
-    border: none;
-    border-radius: 4px;
-    padding: 18px 42px;
-    font-size: 24px;
-    font-weight: 400;
-    color: #FF6633;
-    cursor: pointer;
+  background-color: #fcd5ba;
+  border: none;
+  border-radius: 4px;
+  padding: 18px 42px;
+  font-size: 24px;
+  font-weight: 400;
+  color: #ff6633;
+  cursor: pointer;
 }
 
 @media (max-width: 1420px) {
-    .section .left li {
-        width: 800px;
-    }
+  .section .left li {
+    width: 800px;
+  }
 
-    .aside {
-        gap: 20px;
-    }
+  .aside {
+    gap: 20px;
+  }
 }
 @media (max-width: 1160px) {
-    .section .left li {
-        width: 600px;
-    }
+  .section .left li {
+    width: 600px;
+  }
 }
 @media (max-width: 950px) {
-    .section .left li {
-        width: 400px;
-    }
+  .section .left li {
+    width: 400px;
+  }
 }
 @media (max-width: 730px) {
-    .section .left li {
-        width: 100%;
-    }
+  .section .left li {
+    width: 100%;
+  }
 
-    .section {
-        flex-wrap: wrap;
-    }
+  .section {
+    flex-wrap: wrap;
+  }
 }

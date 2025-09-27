@@ -1,106 +1,106 @@
-const products = [
-    {
-        id: 1,
-        image: "./assets/images/cart-img.png",
-        title: "Г/Ц Блинчики с мясом вес, Россия",
-        price: 44.50,
-        rating: 2,
-    },
-    {
-        id: 2,
-        image: "./assets/images/cart-img.png",
-        title: "Молоко ПРОСТОКВАШИНО паст. питьевое цельное отборное...",
-        price: 44.50,
-        rating: 3,
-    },
-    {
-        id: 3,
-        image: "./assets/images/cart-img.png",
-        title: "Колбаса сырокопченая МЯСНАЯ ИСТОРИЯ Сальчичон и Тоскан...",
-        price: 44.50,
-        rating: 5,
-    },
-    {
-        id: 4,
-        image: "./assets/images/cart-img.png",
-        title: "Сосиски вареные МЯСНАЯ ИСТОРИЯ Молочные и С сыро...",
-        price: 44.50,
-        rating: 4,
-    },
-];
+import { BASE_URL, cartApi } from './api/api.js';
 
-const ul = document.querySelector(".cards-panel");
-const addToCartBtn = document.querySelectorAll(".add-to-cart-btn");
+let product_container = document.querySelector('.cards-panel');
+let showbtn = document.querySelector('.show-more-btn');
 
-let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+window.addEventListener('DOMContentLoaded', () => {
+  getAllProducts();
+});
 
-products.forEach((product) => {
-    let div = document.createElement("div");
-    div.innerHTML = `
-            <li class="card">
-                <div class="top">
-                    <img src="${product.image}" alt="" class="product-image">
-                    <img src="./assets/icons/like.png" alt="" class="like-btn">
-                </div>
+let limit = 4;
+let products = [];
 
-                <div class="main-part">
-                    <div class="price-and-others">
-                        <div class="left">
-                            <span class="price">${product.price} ₽</span>
-                            <span class="desc">С картой</span>
-                        </div>
-                        <div class="right">
-                            <span class="price">50,50 ₽</span>
-                            <span class="desc">Обычная</span>
-                        </div>
-                    </div>
+async function getAllProducts() {
+  const response = await fetch(BASE_URL);
+  const { recipes } = await response.json();
 
-                    <p class="about-product">${product.title}</p>
+  products = [...recipes];
 
-                    <div class="bottom">
-                        <div class="rating-stars">
-                            <img src="./assets/icons/star-yellow.png" alt="">
-                            <img src="./assets/icons/star-yellow.png" alt="">
-                            <img src="./assets/icons/star-grey.png" alt="">
-                            <img src="./assets/icons/star-grey.png" alt="">
-                            <img src="./assets/icons/star-grey.png" alt="">
-                        </div>
-
-                        <a href="#" class="add-to-cart-btn" onclick="addToCart(${product.id})">В корзину</a>
-                    </div>
-                </div>
-            </li>`
-
-    ul.appendChild(div)
-})
-
-function addToCart(id) {
-    const product = products.find((item) => item.id === Number(id));
-
-    if (cart.includes(product)) {
-        return;
-    }
-    cart.push(product);
-    setLocalStorage(cart);
+  displayProducts();
 }
 
-// function displayCart() {
-//     cart_items.innerHTML = '';
+function displayProducts() {
+  product_container.innerHTML = '';
+  products.slice(0, limit).forEach((item) => {
+    const product = { ...item, price: Math.floor(Math.random() * 100) };
+    const rating = Math.floor(product.rating);
+    const li = document.createElement('li');
 
-//     cart_items.innerHTML += cart
-//         .map((item) => {
-//             return `<li>${item.title} <button onclick='removeFromCart("${item.id}")'>delete</button> </li> `;
-//         })
-//         .join('');
-// }
+    li.addEventListener('click', (e) => {
+      if (e.target.classList.contains('add-to-cart-btn')) {
+        addPoructToCart(product);
+      }
+    });
 
-// function removeFromCart(id) {
-//     const productId = Number(id);
-//     cart = cart.filter((item) => item.id !== productId);
-//     setLocalStorage(cart);
-//     displayCart();
-// }
+    li.classList.add('card');
+    li.innerHTML = `
+    <div class="top">
+    <img src="${
+      product.image
+    }" alt="" class="product-image" style="max-height:220px; object-fit:cover">
+    <img src="./assets/icons/like.png" alt="" class="like-btn">
+</div>
 
-function setLocalStorage(cart) {
-    localStorage.setItem('cart', JSON.stringify(cart));
+<div class="main-part">
+    <div class="price-and-others">
+        <div class="left">
+            <span class="price">${product.price} ₽</span>
+            <span class="desc">С картой</span>
+        </div>
+        <div class="right">
+            <span class="price">50,50 ₽</span>
+            <span class="desc">Обычная</span>
+        </div>
+    </div>
+
+    <p class="about-product">${product.name}</p>
+
+    <div class="bottom">
+        <div class="rating-stars">
+           ${Array(rating)
+             .fill('')
+             .map((rate) => {
+               return ` <img src="./assets/icons/star-yellow.png" alt="">`;
+             })
+             .join('')}
+        </div>
+
+        <button class="add-to-cart-btn">В корзину</button>
+    </div>
+</div>`;
+
+    product_container.appendChild(li);
+  });
 }
+
+async function addPoructToCart(product) {
+  try {
+    await fetch(cartApi, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(product),
+    });
+
+    alert('Товар добавлен в корзину');
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+showbtn.addEventListener('click', () => {
+  let checkLimit = limit + 1;
+
+  if (checkLimit > products.length) {
+    showbtn.disabled = 'true';
+  } else {
+    limit += 4;
+    showbtn.textContent = 'Loading...';
+
+    setTimeout(() => {
+      showbtn.textContent = 'show more';
+      displayProducts();
+    }, 1000);
+  }
+});

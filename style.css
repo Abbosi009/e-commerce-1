@@ -1,250 +1,272 @@
 /* Slider */
 
 .slider {
-    width: 100%;
+  width: 100%;
 }
 
 .slider img {
-    width: 100%;
+  width: 100%;
 }
 
 /* Predlojeniya */
 
+.show-more-btn {
+  height: 45px;
+  border-radius: 8px;
+  border: 1px solid gray;
+  font-size: 16px;
+  margin: auto;
+  padding: 5px 25px;
+  margin-top: 90px;
+  cursor: pointer;
+}
+
+.show-more-btn:disabled{
+  background-color: rgb(192, 190, 190);
+  color: lightgray;
+  cursor: no-drop;
+}
+
+.show-more-btn:active:not(:disabled) {
+  background-color: rgb(147, 159, 171);
+  color: black;
+} 
+
 .predlojeniya {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
 }
 
 .predlojeniya .cont {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: space-between;
-    gap: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  gap: 40px;
 }
 
 .predlojeniya .left {
-    background-color: #FCD5BA;
+  background-color: #fcd5ba;
 }
 
 .predlojeniya .cont-element {
-    border-radius: 4px;
-    width: 100%;
-    cursor: pointer;
-    display: flex;
-    padding: 5px;
-    transition: all .2s ease;
+  border-radius: 4px;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  padding: 5px;
+  transition: all 0.2s ease;
 }
 
 .predlojeniya .right {
-    background-color: var(--light-green);
+  background-color: var(--light-green);
 }
 
 .predlojeniya .cont-element:hover {
-    box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.157);
+  box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.157);
 }
 
 .predlojeniya .inside-left {
-    padding: 32px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .cont-element .inside-left h3 {
-    font-size: 26px;
-    font-weight: bold;
+  font-size: 26px;
+  font-weight: bold;
 }
 
 .cont-element .inside-left p {
-    font-size: 18px;
-    font-weight: 400;
-    max-width: 280px;
+  font-size: 18px;
+  font-weight: 400;
+  max-width: 280px;
 }
 
 /* Location */
 
 .geolocation-container {
-    padding: 100px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+  padding: 100px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .geolocation-container .cont {
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
 }
 
 .geolocation-container .links-nav {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
 
 .geolocation-container .link li {
-    color: #606060;
-    font-size: 14px;
-    font-weight: 400;
-    padding: 10px 16px;
-    background-color: #F3F2F1;
-    border-radius: 4px;
-    transition: all .2s ease;
+  color: #606060;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 10px 16px;
+  background-color: #f3f2f1;
+  border-radius: 4px;
+  transition: all 0.2s ease;
 }
 
 .geolocation-container .links-nav .link li:hover {
-    background-color: var(--green);
-    color: white;
+  background-color: var(--green);
+  color: white;
 }
 
 .the-map {
-    width: 100%;
+  width: 100%;
 }
 
 /* Статьи */
 
 .stati-container {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
 }
 
 .stati-cards-box {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
 }
 
 .stati-card {
-    width: 100%;
-    max-height: 560px;
-    background-color: white;
-    border-radius: 4px;
-    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.079);
-    transition: all .2s ease-in-out;
+  width: 100%;
+  max-height: 560px;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.079);
+  transition: all 0.2s ease-in-out;
 }
 
 .stati-card:hover {
-    box-shadow: 2px 8px 15px 0px rgba(0, 0, 0, 0.116);
+  box-shadow: 2px 8px 15px 0px rgba(0, 0, 0, 0.116);
 }
 
 .stati-card img {
-    width: 100%;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
+  width: 100%;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 
 .stati-card div {
-    padding: 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .stati-card .date {
-    font-size: 14px;
-    font-weight: 400;
-    color: #8F8F8F;
+  font-size: 14px;
+  font-weight: 400;
+  color: #8f8f8f;
 }
 
 .stati-card h4 {
-    font-size: 20px;
-    font-weight: bold;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .stati-card p {
-    font-size: 18px;
-    font-weight: 400;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .stati-card a {
-    font-size: 18px;
-    font-weight: 400;
-    color: var(--green);
-    transition: all .2s ease;
-    background-color: var(--light-green);
-    padding: 10px 30px;
-    width: max-content;
-    border-radius: 4px;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--green);
+  transition: all 0.2s ease;
+  background-color: var(--light-green);
+  padding: 10px 30px;
+  width: max-content;
+  border-radius: 4px;
 }
 
 .stati-card a:hover {
-    background-color: var(--green);
-    color: white;
+  background-color: var(--green);
+  color: white;
 }
 
 /* Responsive */
 
 @media (max-width: 1235px) {
-    .cards-panel {
-        grid-template-columns: repeat(4, 260px);
-    }
+  .cards-panel {
+    grid-template-columns: repeat(4, 260px);
+  }
 }
 
 @media (max-width: 1150px) {
-    .predlojeniya .cont {
-        grid-template-rows: 1fr 1fr;
-        grid-template-columns: 100%;
-        justify-content: space-between;
-    }
+  .predlojeniya .cont {
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 100%;
+    justify-content: space-between;
+  }
 }
 
 @media (max-width: 950px) {
-    .other-menues .menu-item p {
-        font-size: 12px;
-    }
+  .other-menues .menu-item p {
+    font-size: 12px;
+  }
 
-    .cont-element .inside-left p {
-        font-size: 16px;
-    }
+  .cont-element .inside-left p {
+    font-size: 16px;
+  }
 
-    .stati-card p {
-        font-size: 14px;
-    }
+  .stati-card p {
+    font-size: 14px;
+  }
 
-    .stati-card .date {
-        font-size: 12px;
-    }
+  .stati-card .date {
+    font-size: 12px;
+  }
 
-    iframe {
-        height: 360px;
-    }
+  iframe {
+    height: 360px;
+  }
 
-    .geolocation-container {
-        padding: 40px 0;
-    }
+  .geolocation-container {
+    padding: 40px 0;
+  }
 }
 
 @media (max-width: 705px) {
-    .stati-cards-box {
-        grid-template-columns: 100%;
-        gap: 20px;
-    }
+  .stati-cards-box {
+    grid-template-columns: 100%;
+    gap: 20px;
+  }
 
-    .predlojeniya .cont-element {
-        flex-direction: column;
-        align-items: center;
-    }
+  .predlojeniya .cont-element {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .predlojeniya .cont-element .inside-left {
-        align-items: center;
-        text-align: center;
-    }
+  .predlojeniya .cont-element .inside-left {
+    align-items: center;
+    text-align: center;
+  }
 
-    .slider-img {
-        display: none;
-    }
+  .slider-img {
+    display: none;
+  }
 
-    .slider-res {
-        display: block;
-    }
+  .slider-res {
+    display: block;
+  }
 }
 
 @media (max-width: 505px) {
-    .geolocation-container .links-nav {
-        flex-wrap: wrap;
-    }
+  .geolocation-container .links-nav {
+    flex-wrap: wrap;
+  }
 }
